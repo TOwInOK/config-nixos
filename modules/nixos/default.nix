@@ -9,5 +9,6 @@
     ./bluetooth.nix
     ./docker.nix
     ./cups.nix
+    ./zapret.nix
   ];
 }
