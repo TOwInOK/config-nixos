@@ -14,4 +14,10 @@
   networking.hostName = hostname;
 
   system.stateVersion = stateVersion;
+
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  };
 }
