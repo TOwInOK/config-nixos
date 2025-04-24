@@ -8,35 +8,7 @@
         auto_update = false;
 
 
-        terminal = {
-            alternate_scroll = "off";
-            blinking = "off";
-            copy_on_select = false;
-            dock = "bottom";
-            detect_venv = {
-                on = {
-                    directories = [".env" "env" ".venv" "venv"];
-                    activate_script = "default";
-                };
-            };
-            env = {
-                TERM = "alacritty";
-            };
-            font_family = "FiraCode Nerd Font";
-            font_features = null;
-            font_size = null;
-            line_height = "comfortable";
-            option_as_meta = false;
-            button = false;
-            shell = "system";
-            #{
-            #                    program = "zsh";
-            #};
-            toolbar = {
-                title = true;
-            };
-            working_directory = "current_project_directory";
-        };
+
 
         ## everything inside of these brackets are Zed options.
         userSettings = {
@@ -144,11 +116,35 @@
             button = false;
           };
           terminal = {
-            button = false;
-            env = {
-              EDITOR = "zed --wait";
-            };
+              alternate_scroll = "off";
+              blinking = "off";
+              copy_on_select = false;
+              dock = "bottom";
+              detect_venv = {
+                  on = {
+                      directories = [".env" "env" ".venv" "venv"];
+                      activate_script = "default";
+                  };
+              };
+              env = {
+                  TERM = "ghostty";
+              };
+              font_family = "FiraCode Nerd Font";
+              font_features = null;
+              font_size = null;
+              line_height = "comfortable";
+              option_as_meta = false;
+              button = false;
+              shell = "system";
+              #{
+              #                    program = "zsh";
+              #};
+              toolbar = {
+                  title = true;
+              };
+              working_directory = "current_project_directory";
           };
+
           languages = {
             Rust = {
               show_edit_predictions = true;
