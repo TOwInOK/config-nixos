@@ -25,6 +25,7 @@
       { hostname = "towinok-pc"; stateVersion = "24.05"; }
     ];
 
+
     makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
@@ -50,6 +51,7 @@
         inherit inputs homeStateVersion user;
       };
 
+      nixpkgs.config.allowUnfree = true;
       modules = [
         ./home-manager/home.nix
       ];
