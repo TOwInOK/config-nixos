@@ -16,7 +16,9 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+
   # global
+  programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
   # User configuration
@@ -40,8 +42,6 @@
 
   # Networking configuration
   networking.hostName = "twk";
-  # Enable nvidia
-  hardware.nvidia.enable = true;
   # Enable sound
   sound.enable = true;
 

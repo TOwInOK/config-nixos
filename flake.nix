@@ -60,7 +60,9 @@
       # Конфигурация для хоста 'twk'
       twk = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./config/nixos/configuration.nix ];
+        modules = [
+          ./config/nixos/configuration.nix
+        ];
       };
     };
 

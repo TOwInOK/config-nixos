@@ -3,12 +3,6 @@
 # https://nixos.wiki/wiki/Nvidia#Determining_the_Correct_Driver_Version
 
 {
-  options = {
-    hardware.nvidia.enable = lib.mkEnableOption "Enable NVIDIA driver support";
-  };
-
-  # if hardware.nvidia.enable
-  config = lib.mkIf config.hardware.nvidia.enable {
     # Nvidia configuration
     hardware.nvidia = {
       # Modesetting is required.
@@ -90,7 +84,7 @@
       #   persistencedSha256 = lib.fakeSha256;
       # };
 
-      ## From upstream 
+      ## From upstream
       package =
         config.boot.kernelPackages.nvidiaPackages.latest; # https://github.com/NixOS/nixpkgs/blob/master/pkgs/os-specific/linux/nvidia-x11/default.nix
     };
@@ -107,5 +101,4 @@
 
     # Enable systemd
     systemd.services.nvidia-udev.enable = true;
-  };
 }
