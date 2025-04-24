@@ -1,7 +1,7 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, pkgs, ... }: {
-  imports = [ outputs.nixosModules.default ./hardware-configuration.nix ];
+{ inputs, outputs, lib, pkgs, modulesPath, ... }: {
+  imports = [ ./hardware-configuration.nix ];
 
   # Flake registry and nix path match flake inputs
   nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -33,7 +33,7 @@
 
   # boot section
   boot = {
-    loader.systemd-boot = true;
+    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   };
