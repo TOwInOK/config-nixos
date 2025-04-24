@@ -1,7 +1,7 @@
 # https://nixos.wiki/wiki/Fonts
 
 { pkgs, ... }: {
-  font = {
+  fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [ nerdfonts ];
     fontconfig = {
