@@ -25,7 +25,7 @@
       # change it after setup via passwd
       initialPassword = "twk";
       isNormalUser = true;
-      useDefaultShell = pkgs.fish;
+      useDefaultShell = true;
       extraGroups =
         [ "wheel" "networkmanager" "audio" "docker" "input" "scanner" "lp" ];
     };
