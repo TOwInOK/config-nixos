@@ -15,7 +15,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  nixpkgs.config = { allowUnfree = true; };
 
   # Определяем выходные параметры (что флейк экспортирует)
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
