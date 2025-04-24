@@ -1,3 +1,0 @@
-# Modules
-
-Configurations for nixos

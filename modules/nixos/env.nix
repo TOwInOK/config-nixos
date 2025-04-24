@@ -1,5 +1,0 @@
-{
-  environment.sessionVariables = {
-    # editor = "zed";
-  };
-}
