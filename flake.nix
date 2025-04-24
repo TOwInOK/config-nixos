@@ -22,7 +22,7 @@
     homeStateVersion = "24.11";
     user = "towinok";
     hosts = [
-      { hostname = "towinok-pc"; stateVersion = "24.11"; }
+      { hostname = "twk-pc"; stateVersion = "24.11"; }
     ];
 
 
