@@ -4,14 +4,10 @@
 
   # Определяем входные зависимости
   inputs = {
-    # Основной стабильный nixpkgs (используется для сборки системы)
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    # Нестабильный nixpkgs (можно использовать для свежих пакетов)
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Подключаем home-manager для управления конфигами пользователя
     home-manager.url = "github:nix-community/home-manager/release-24.05";
-    # Говорим home-manager использовать ту же версию nixpkgs, что и основная система
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -23,19 +19,13 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    # Указываем список поддерживаемых архитектур
     systems = ["x86_64-linux"];
-    # Упрощенная функция для работы с разными архитектурами
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # Определяем кастомные пакеты (можно устанавливать через 'nix build .#package_name')
     packages = forAllSystems (system:
       import ./modules/custom/pkgs {
         pkgs = nixpkgs.legacyPackages.${system};
       });
-    # Настраиваем автоформаттер для Nix файлов
-    formatter =
-      forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Определяем devShells (окружение разработки, доступное через 'nix develop')
     devShells = forAllSystems (system: {
