@@ -16,4 +16,6 @@
   system.stateVersion = stateVersion;
 
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+
+  nixpkgs.config.allowUnfree = true;
 }

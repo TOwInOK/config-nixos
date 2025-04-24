@@ -9,21 +9,7 @@
       nftables
       ipset
       curl
-      (pkgs.stdenv.mkDerivation {
-        pname = "zapret";
-        version = "0.1";
-        src = pkgs.fetchFromGitHub {
-          owner = "bol-van";
-          repo = "zapret";
-          rev = "29c8aec1116d504692bebc16420d0e3ad65c030b";
-          hash = "sha256-diWPEakHgYytBknng1Opfr7XZbf58JqzwPz8KbmNcBQ=";
-        };
-        installPhase = ''
-          mkdir -p $out/bin
-          cp -r * $out/
-          ln -s $out/init.d/zapret $out/bin/zapret
-        '';
-      })
+      zapret
       gawk
     ];
     serviceConfig = {
